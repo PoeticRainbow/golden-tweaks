@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "io.github.poeticrainbow.goldentweaks.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "common.AmbientOcclusionRenderStorageMixin"
+  ],
+  "mixins": [
+    "common.BlockBehaviorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

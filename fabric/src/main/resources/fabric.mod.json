@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "goldentweaks",
+  "version": "${version}",
+  "name": "GoldenTweaks",
+  "description": "Implements visual tweaks to send your Minecraft back in time!",
+  "authors": [
+    "PoeticRainbow"
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/goldentweaks/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.poeticrainbow.goldentweaks.fabric.GoldenTweaksFabric"
+    ],
+    "client": [
+      "io.github.poeticrainbow.goldentweaks.fabric.client.GoldenTweaksFabricClient"
+    ]
+  },
+  "mixins": [
+    "goldentweaks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "architectury": ">=19.0.1"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

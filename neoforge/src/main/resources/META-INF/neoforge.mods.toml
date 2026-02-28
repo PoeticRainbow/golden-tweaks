@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "GNU GPL 3.0"
+
+[[mods]]
+modId = "goldentweaks"
+version = "${version}"
+displayName = "GoldenTweaks"
+authors = "PoeticRainbow"
+description = '''
+Implements visual tweaks to send your Minecraft back in time!
+'''
+#logoFile = ""
+
+[[dependencies.goldentweaks]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.goldentweaks]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.11,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.goldentweaks]]
+modId = "architectury"
+type = "required"
+versionRange = "[19.0.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "goldentweaks.mixins.json"
