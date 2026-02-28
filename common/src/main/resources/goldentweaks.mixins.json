@@ -4,10 +4,10 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "common.AmbientOcclusionRenderStorageMixin"
+    "AmbientOcclusionRenderStorageMixin"
   ],
   "mixins": [
-    "common.BlockBehaviorMixin"
+    "BlockBehaviorMixin"
   ],
   "injectors": {
     "defaultRequire": 1

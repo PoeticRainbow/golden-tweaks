@@ -1,9 +1,3 @@
 accessWidener v2 named
 
 accessible class net/minecraft/client/renderer/block/ModelBlockRenderer$AmbientOcclusionRenderStorage
-#accessible method net/minecraft/client/renderer/block/ModelBlockRenderer$CommonRenderStorage <init> ()V
-#accessible class net/minecraft/client/renderer/block/ModelBlockRenderer$AmbientVertexRemap
-#accessible field net/minecraft/client/renderer/block/ModelBlockRenderer$AmbientVertexRemap vert0 I
-#accessible field net/minecraft/client/renderer/block/ModelBlockRenderer$AmbientVertexRemap vert1 I
-#accessible field net/minecraft/client/renderer/block/ModelBlockRenderer$AmbientVertexRemap vert2 I
-#accessible field net/minecraft/client/renderer/block/ModelBlockRenderer$AmbientVertexRemap vert3 I
