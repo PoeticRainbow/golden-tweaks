@@ -1,6 +1,6 @@
 package io.github.poeticrainbow.goldentweaks.mixin;
 
-import io.github.poeticrainbow.goldentweaks.GoldenTweaks;
+import io.github.poeticrainbow.goldentweaks.config.Tweaks;
 import net.minecraft.client.renderer.block.ModelBlockRenderer;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ public abstract class AmbientOcclusionRenderStorageMixin  {
     */
     @Redirect(method = "calculate", at = @At(value = "FIELD", target = "Lnet/minecraft/client/renderer/block/ModelBlockRenderer$AmbientOcclusionRenderStorage;facePartial:Z", opcode = Opcodes.GETFIELD))
     private boolean inject(ModelBlockRenderer.AmbientOcclusionRenderStorage instance) {
-        if (GoldenTweaks.CONFIG.fullFaceShading()) return false;
+        if (Tweaks.FULL_FACE_SHADING.get()) return false;
         return instance.facePartial;
     }
 }

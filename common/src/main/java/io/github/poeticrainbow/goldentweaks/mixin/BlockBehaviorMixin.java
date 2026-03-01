@@ -1,7 +1,7 @@
 package io.github.poeticrainbow.goldentweaks.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import io.github.poeticrainbow.goldentweaks.GoldenTweaks;
+import io.github.poeticrainbow.goldentweaks.config.Tweaks;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,10 +15,10 @@ public abstract class BlockBehaviorMixin {
      */
     @ModifyReturnValue(method = "getShadeBrightness", at = @At("RETURN"))
     private float goldentweaks$old_ambient_occlusion(float original, BlockState state) {
-        if (GoldenTweaks.CONFIG.betaLeavesLighting() && state.is(BlockTags.LEAVES)) {
+        if (Tweaks.BETA_LEAVES_LIGHTING.get() && state.is(BlockTags.LEAVES)) {
             return 1f;
         }
-        if (GoldenTweaks.CONFIG.darkAmbientOcclusion()) {
+        if (Tweaks.DARK_AMBIENT_OCCLUSION.get()) {
             return original == 0.2f ? 0f : original;
         }
         return original;

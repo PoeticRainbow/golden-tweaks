@@ -1,8 +1,6 @@
 package io.github.poeticrainbow.goldentweaks.neoforge;
 
-import dev.architectury.platform.client.ConfigurationScreenRegistry;
 import io.github.poeticrainbow.goldentweaks.GoldenTweaks;
-import net.minecraft.client.gui.screens.ChatScreen;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.config.NeoForgeClientConfig;
 import net.neoforged.neoforge.client.event.ClientResourceLoadFinishedEvent;

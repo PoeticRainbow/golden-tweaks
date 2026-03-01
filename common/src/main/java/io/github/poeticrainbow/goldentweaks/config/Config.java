@@ -42,6 +42,7 @@ public record Config(
 
     public static Optional<Config> load() {
         try {
+            // todo: change this to load a default config from the resources in the jar
             var data = "{}";
             if (CONFIG_PATH.toFile().exists()) {
                 data = Files.readString(CONFIG_PATH);
