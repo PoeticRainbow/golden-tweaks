@@ -10,7 +10,7 @@ dependencies {
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
-
+    implementation "net.caffeinemc:sodium-neoforge-mod:0.8.6+mc$project.minecraft_version"
 //    modApi "fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:21.11.1"
 }
 

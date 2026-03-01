@@ -33,6 +33,10 @@ subprojects {
 //            name = "Fuzs Mod Resources"
 //            url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
 //        }
+        maven {
+            name "CaffeineMC"
+            url "https://maven.caffeinemc.net/releases" // or /snapshots
+        }
     }
 
     dependencies {
