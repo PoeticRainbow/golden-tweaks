@@ -8,7 +8,10 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(SkyRenderer.class)
 public class SkyRendererMixin {
-    @ModifyVariable(method = "buildStars", at = @At(value = "STORE"), name = "k")
+    // k for fabric
+    // f4 for neoforge
+    //@ModifyVariable(method = "buildStars", at = @At(value = "STORE"), name = "k")
+    @ModifyVariable(method = "buildStars", at = @At(value = "STORE"), ordinal = 4)
     private static float goldentweaks$modify_star_size(float value) {
         if (Tweaks.BIG_STARS.get()) {
             // modern 0.15F + randomSource.nextFloat() * 0.1F
