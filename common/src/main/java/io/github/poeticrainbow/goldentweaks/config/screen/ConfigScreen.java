@@ -12,13 +12,16 @@ public class ConfigScreen extends Screen {
     //private HeaderAndFooterLayout layout = new HeaderAndFooterLayout(this, 40, 40);
     private TweakButtonList list;
 
+    public static final int sidebarWidth = 240;
+
     public ConfigScreen() {
         super(Component.translatable("gui.goldentweaks.config"));
     }
 
     @Override
     protected void init() {
-        list = new TweakButtonList(minecraft, width, height);
+        var padding = 20;
+        list = new TweakButtonList(minecraft, sidebarWidth, height - padding);
 
         //layout.addTitleHeader(getTitle(), getFont());
         //layout.addToContents(list);
@@ -29,7 +32,8 @@ public class ConfigScreen extends Screen {
 
         addRenderableWidget(list);
         addRenderableWidget(
-            new Button.Builder(CommonComponents.GUI_DONE, button -> this.onClose()).build()
+            new Button.Builder(CommonComponents.GUI_DONE, button -> this.onClose())
+                .bounds(0, height - padding, sidebarWidth, padding).build()
         );
     }
 
@@ -40,8 +44,14 @@ public class ConfigScreen extends Screen {
     }
 
     @Override
+    public void renderBackground(GuiGraphics guiGraphics, int i, int j, float f) {
+
+        this.minecraft.gui.renderDeferredSubtitles();
+    }
+
+    @Override
     public void render(@NotNull GuiGraphics graphics, int i, int j, float f) {
-        graphics.drawCenteredString(getFont(), getTitle(), width / 2, 0, 0);
+        graphics.drawCenteredString(getFont(), getTitle(), 0, 0, 0);
         //renderMenuBackground(graphics);
 
         //layout.visitChildren(layoutElement -> layoutElement.visitWidgets(abstractWidget -> abstractWidget.render(graphics, i, j, f)));
