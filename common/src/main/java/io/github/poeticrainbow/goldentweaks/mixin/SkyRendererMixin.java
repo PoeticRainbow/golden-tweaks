@@ -15,7 +15,9 @@ public class SkyRendererMixin {
     private static float goldentweaks$modify_star_size(float value) {
         if (Tweaks.BIG_STARS.get()) {
             // modern 0.15F + randomSource.nextFloat() * 0.1F
+            // [0.15, 0.25]
             // beta 0.25f + source.nextFloat() * 0.25f
+            // [0.25, 0.5]
 
             // we do NOT want to roll the RandomSource again, or it will shift the random values
             var random = (value - 0.15f) * 10;
