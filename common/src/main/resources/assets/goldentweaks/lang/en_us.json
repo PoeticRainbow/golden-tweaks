@@ -6,5 +6,7 @@
   "goldentweaks.tweak.dark_ambient_occlusion": "Dark Ambient Occlusion",
   "goldentweaks.tweak.dark_ambient_occlusion.tooltip": "When enabled, the shadows between adjacent blocks will be darker.",
   "goldentweaks.tweak.full_face_shading": "Full Face Shading",
-  "goldentweaks.tweak.full_face_shading.tooltip": "When enabled, the lighting on block models will be applied to each individual element independent of their position in the model."
+  "goldentweaks.tweak.full_face_shading.tooltip": "When enabled, the lighting on block models will be applied to each individual element independent of their position in the model.",
+  "goldentweaks.tweak.big_stars": "Big Stars",
+  "goldentweaks.tweak.big_stars.tooltip": "When enabled, the stars will be ~2x bigger like in Beta.\n\nThis tweak requires a restart to take effect."
 }

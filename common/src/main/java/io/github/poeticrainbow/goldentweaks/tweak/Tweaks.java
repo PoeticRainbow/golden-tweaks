@@ -13,6 +13,8 @@ public class Tweaks {
     public static final Tweak<Boolean> BETA_LEAVES_LIGHTING = register(new BooleanTweak("beta_leaves_lighting", true));
     public static final Tweak<Boolean> DARK_AMBIENT_OCCLUSION = register(new BooleanTweak("dark_ambient_occlusion", true));
     public static final Tweak<Boolean> FULL_FACE_SHADING = register(new BooleanTweak("full_face_shading", true, GoldenTweaks.PLATFORM::isVanillaAo));
+    public static final Tweak<Boolean> BIG_STARS = register(new BooleanTweak("big_stars", true));
+
 
     public static <V> Tweak<V> register(Tweak<V> tweak) {
         REGISTRY.put(tweak.key(), tweak);
