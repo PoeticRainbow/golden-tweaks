@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(SkyRenderer.class)
-public class SkyRendererMixin {
+public abstract class SkyRendererMixin {
     // k for fabric
     // f4 for neoforge
     //@ModifyVariable(method = "buildStars", at = @At(value = "STORE"), name = "k")
