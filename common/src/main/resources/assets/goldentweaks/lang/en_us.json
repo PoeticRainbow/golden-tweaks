@@ -8,5 +8,7 @@
   "goldentweaks.tweak.full_face_shading": "Full Face Shading",
   "goldentweaks.tweak.full_face_shading.tooltip": "When enabled, the lighting on block models will be applied to each individual element independent of their position in the model.",
   "goldentweaks.tweak.big_stars": "Big Stars",
-  "goldentweaks.tweak.big_stars.tooltip": "When enabled, the stars will be ~2x bigger like in Beta.\n\nThis tweak requires a restart to take effect."
+  "goldentweaks.tweak.big_stars.tooltip": "When enabled, the stars will be ~2x bigger like in Beta.\n\nThis tweak requires a restart to take effect.",
+  "goldentweaks.tweak.flat_items": "Flat Items",
+  "goldentweaks.tweak.flat_items.tooltip": "When enabled, dropped items will be rendered 2D and flat."
 }
