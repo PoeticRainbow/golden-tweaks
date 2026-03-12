@@ -10,7 +10,8 @@
   ],
   "mixins": [
     "BlockBehaviorMixin",
-    "BlockStateBaseMixin"
+    "BlockStateBaseMixin",
+    "EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

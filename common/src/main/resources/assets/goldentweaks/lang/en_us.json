@@ -12,5 +12,7 @@
   "goldentweaks.tweak.flat_items": "Flat Items",
   "goldentweaks.tweak.flat_items.tooltip": "When enabled, dropped items will be rendered 2D and flat.",
   "goldentweaks.tweak.dark_water_lighting": "Dark Water Lighting",
-  "goldentweaks.tweak.dark_water_lighting.tooltip": "When enabled, Water will block 3 light levels per layer instead of 1."
+  "goldentweaks.tweak.dark_water_lighting.tooltip": "When enabled, Water will block 3 light levels per layer instead of 1.",
+  "goldentweaks.tweak.old_footsteps": "Old Footsteps",
+  "goldentweaks.tweak.old_footsteps.tooltip": "When enabled, all mobs will make player-like footsteps based on the block they are standing on."
 }
