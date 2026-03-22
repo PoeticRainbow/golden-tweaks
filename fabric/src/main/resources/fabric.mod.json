@@ -5,7 +5,8 @@
   "name": "GoldenTweaks",
   "description": "Implements visual tweaks to send your Minecraft back in time!",
   "authors": [
-    "PoeticRainbow"
+    "PoeticRainbow",
+    "GameMasterPDX"
   ],
   "contact": {
     "homepage": ""
@@ -22,7 +23,8 @@
     ]
   },
   "mixins": [
-    "goldentweaks.mixins.json"
+    "goldentweaks.mixins.json",
+    "goldentweaks-fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.18.4",
