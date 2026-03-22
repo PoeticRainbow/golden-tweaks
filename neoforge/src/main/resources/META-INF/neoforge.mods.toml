@@ -7,7 +7,7 @@ license = "GNU GPL 3.0"
 modId = "goldentweaks"
 version = "${version}"
 displayName = "GoldenTweaks"
-authors = "PoeticRainbow"
+authors = ["PoeticRainbow", "GameMasterPDX"]
 description = '''
 Implements visual tweaks to send your Minecraft back in time!
 '''
@@ -36,3 +36,6 @@ side = "BOTH"
 
 [[mixins]]
 config = "goldentweaks.mixins.json"
+
+[[mixins]]
+config = "goldentweaks-neoforge.mixins.json"
