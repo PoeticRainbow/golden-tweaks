@@ -19,7 +19,8 @@
   "goldentweaks.tweak.beta_main_menu.tooltip": "When enabled, the main menu will be modified to look like the one that appears in beta versions.",
   "goldentweaks.tweak.beta_mojang_logo": "Beta Mojang Logo",
   "goldentweaks.tweak.beta_mojang_logo.tooltip": "When enabled, the loading screen will appear as the one in beta versions.",
-
+  "goldentweaks.tweak.old_block_shapes": "Old Block Shapes",
+  "goldentweaks.tweak.old_block_shapes.tooltip": "When enabled, blocks like Fences and Chests will have full block shapes.",
   "goldentweaks.menu.mods": "Mods and Texture Packs",
   "goldentweaks.menu.version": "Minecraft Beta 1.7.3"
 }

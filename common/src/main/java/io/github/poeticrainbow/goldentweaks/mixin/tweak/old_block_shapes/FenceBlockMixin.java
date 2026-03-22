@@ -20,7 +20,7 @@ public class FenceBlockMixin extends Block {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return OldBlockShapesHelper.getFullBlockShape()
-                                   .orElseGet(() -> super.getCollisionShape(state, world, pos, context));
+                                   .orElseGet(() -> super.getShape(state, world, pos, context));
     }
 
     @Override

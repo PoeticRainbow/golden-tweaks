@@ -1,5 +1,6 @@
 package io.github.poeticrainbow.goldentweaks.helper;
 
+import io.github.poeticrainbow.goldentweaks.tweak.Tweaks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -11,9 +12,11 @@ public class OldBlockShapesHelper {
 
     public static boolean shouldOverrideBlockShapes() {
         try {
-            net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-            // only override on singleplayer, for now
-            return mc.getSingleplayerServer() != null;
+            if (Tweaks.OLD_BLOCK_SHAPES.get()) {
+                net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
+                // only override on singleplayer, for now
+                return mc.getSingleplayerServer() != null;
+            }
         } catch (Exception ignored) {
         }
         return false;
