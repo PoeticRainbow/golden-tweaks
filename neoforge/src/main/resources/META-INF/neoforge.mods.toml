@@ -35,7 +35,7 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[mixins]]
-config = "goldentweaks.mixins.json"
+config = "goldentweaks-required.mixins.json"
 
 [[mixins]]
 config = "goldentweaks-tweak.mixins.json"

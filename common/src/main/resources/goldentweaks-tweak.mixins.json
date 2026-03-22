@@ -1,23 +1,23 @@
 {
   "required": false,
-  "package": "io.github.poeticrainbow.goldentweaks.mixin",
+  "package": "io.github.poeticrainbow.goldentweaks.mixin.tweak",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "tweak.beta_main_menu.TitleScreenMixin",
-    "tweak.beta_mojang_logo.LoadingOverlayMixin",
-    "tweak.big_stars.SkyRendererMixin",
-    "tweak.flat_items.ItemEntityRendererMixin",
-    "tweak.full_face_shading.AmbientOcclusionRenderStorageMixin"
+    "beta_main_menu.TitleScreenMixin",
+    "beta_mojang_logo.LoadingOverlayMixin",
+    "big_stars.SkyRendererMixin",
+    "flat_items.ItemEntityRendererMixin",
+    "full_face_shading.AmbientOcclusionRenderStorageMixin"
   ],
   "mixins": [
-    "tweak.beta_leaves_lighting.BlockBehaviorMixin",
-    "tweak.dark_ambient_occlusion.BlockBehaviorMixin",
-    "tweak.dark_water_lighting.BlockStateBaseMixin",
-    "tweak.old_block_shapes.ChestBlockMixin",
-    "tweak.old_block_shapes.EnderChestBlockMixin",
-    "tweak.old_block_shapes.FenceBlockMixin",
-    "tweak.old_footsteps.EntityMixin"
+    "beta_leaves_lighting.BlockBehaviorMixin",
+    "dark_ambient_occlusion.BlockBehaviorMixin",
+    "dark_water_lighting.BlockStateBaseMixin",
+    "old_block_shapes.ChestBlockMixin",
+    "old_block_shapes.EnderChestBlockMixin",
+    "old_block_shapes.FenceBlockMixin",
+    "old_footsteps.EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "goldentweaks.mixins.json",
+    "goldentweaks-required.mixins.json",
     "goldentweaks-tweak.mixins.json",
     "goldentweaks-fabric.mixins.json"
   ],
