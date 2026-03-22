@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.tweak.old_block_shapes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.tweak.big_stars;
 
 import io.github.poeticrainbow.goldentweaks.tweak.Tweaks;
 import net.minecraft.client.renderer.SkyRenderer;

@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.tweak.full_face_shading;
 
 import io.github.poeticrainbow.goldentweaks.tweak.Tweaks;
 import net.minecraft.client.renderer.block.ModelBlockRenderer;

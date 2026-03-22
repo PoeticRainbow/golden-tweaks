@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.tweak.dark_water_lighting;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import io.github.poeticrainbow.goldentweaks.tweak.Tweaks;

@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.tweak.old_footsteps;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -24,7 +24,7 @@ public abstract class EntityMixin {
             target = "Lnet/minecraft/world/entity/Entity;playStepSound(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V"
         )
     )
-    private void inject(Entity instance, BlockPos pos, BlockState state, Operation<Void> original) {
+    private void goldentweaks$old_footsteps(Entity instance, BlockPos pos, BlockState state, Operation<Void> original) {
         if (Tweaks.OLD_FOOTSTEPS.get()) {
             goldentweaks$play_block_step(state);
         } else {

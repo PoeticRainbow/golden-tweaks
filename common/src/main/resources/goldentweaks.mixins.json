@@ -4,20 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "AmbientOcclusionRenderStorageMixin",
-    "ItemEntityRendererMixin",
-    "LoadingOverlayMixin",
-    "ScreenAccessor",
-    "SkyRendererMixin",
-    "TitleScreenMixin"
-  ],
-  "mixins": [
-    "BlockBehaviorMixin",
-    "BlockStateBaseMixin",
-    "ChestBlockMixin",
-    "EnderChestBlockMixin",
-    "EntityMixin",
-    "FenceBlockMixin"
+    "required.ScreenAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

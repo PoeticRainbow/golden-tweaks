@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.tweak.flat_items;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import io.github.poeticrainbow.goldentweaks.helper.BillboardHelper;

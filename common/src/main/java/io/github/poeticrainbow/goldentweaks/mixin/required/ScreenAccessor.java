@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.goldentweaks.mixin;
+package io.github.poeticrainbow.goldentweaks.mixin.required;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Renderable;
