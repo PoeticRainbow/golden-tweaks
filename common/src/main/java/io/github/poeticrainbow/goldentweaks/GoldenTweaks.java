@@ -1,35 +1,24 @@
 package io.github.poeticrainbow.goldentweaks;
 
-import dev.architectury.event.events.client.ClientCommandRegistrationEvent;
+import dev.architectury.platform.Platform;
+import dev.architectury.utils.Env;
 import io.github.poeticrainbow.goldentweaks.config.Config;
-import io.github.poeticrainbow.goldentweaks.config.screen.ConfigScreen;
-import net.minecraft.client.Minecraft;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static dev.architectury.event.events.client.ClientCommandRegistrationEvent.literal;
 
 public final class GoldenTweaks {
     public static final String MOD_ID = "goldentweaks";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static TweakPlatform PLATFORM;
-
     public static void init() {
         // Write common init code here.
-
         Config.load();
         Config.save();
 
-        ClientCommandRegistrationEvent.EVENT.register((dispatcher, context) -> {
-            dispatcher.register(
-                literal("goldentweaks")
-                    .executes(ctx -> {
-                        Minecraft.getInstance().execute(() -> Minecraft.getInstance().setScreen(new ConfigScreen()));
-                        return 1;
-                    })
-            );
-        });
+        if (Platform.getEnvironment() == Env.CLIENT) {
+            GoldenTweaksClient.init();
+        }
     }
 
     public static Identifier id(String path) {
