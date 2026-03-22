@@ -19,7 +19,7 @@ public class GoldenTweaksClient {
 
         ClientRawInputEvent.KEY_PRESSED.register((client, action, keyEvent) -> {
             if (GOLDEN_TWEAKS_BUTTON.consumeClick()) {
-                Minecraft.getInstance().execute(() -> Minecraft.getInstance().setScreen(new ConfigScreen()));
+                GoldenTweaksClient.openConfigScreen();
                 return EventResult.interruptTrue();
             }
             return EventResult.pass();
@@ -29,10 +29,14 @@ public class GoldenTweaksClient {
             dispatcher.register(
                 literal("goldentweaks")
                     .executes(ctx -> {
-                        Minecraft.getInstance().execute(() -> Minecraft.getInstance().setScreen(new ConfigScreen()));
+                        GoldenTweaksClient.openConfigScreen();
                         return 1;
                     })
             );
         });
+    }
+
+    public static void openConfigScreen() {
+        Minecraft.getInstance().execute(() -> Minecraft.getInstance().setScreen(new ConfigScreen()));
     }
 }
