@@ -17,6 +17,8 @@ public class Tweaks {
     public static final Tweak<Boolean> FLAT_ITEMS = register(new BooleanTweak("flat_items", true));
     public static final Tweak<Boolean> DARK_WATER_LIGHTING = register(new BooleanTweak("dark_water_lighting", true));
     public static final Tweak<Boolean> OLD_FOOTSTEPS = register(new BooleanTweak("old_footsteps", true));
+    public static final Tweak<Boolean> BETA_MAIN_MENU = register(new BooleanTweak("beta_main_menu", true));
+    public static final Tweak<Boolean> BETA_MOJANG_LOGO = register(new BooleanTweak("beta_mojang_logo", true));
 
 
     public static <V> Tweak<V> register(Tweak<V> tweak) {
