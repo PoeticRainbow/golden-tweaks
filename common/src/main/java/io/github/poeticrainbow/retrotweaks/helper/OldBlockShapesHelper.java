@@ -12,7 +12,7 @@ public class OldBlockShapesHelper {
 
     public static boolean shouldOverrideBlockShapes() {
         try {
-            if (Tweaks.OLD_BLOCK_SHAPES.get()) {
+            if (Tweaks.OLD_HITBOX_SHAPES.get()) {
                 net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
                 // only override on singleplayer, for now
                 return mc.getSingleplayerServer() != null;

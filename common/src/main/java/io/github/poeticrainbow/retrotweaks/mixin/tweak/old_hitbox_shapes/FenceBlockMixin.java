@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.mixin.tweak.old_block_shapes;
+package io.github.poeticrainbow.retrotweaks.mixin.tweak.old_hitbox_shapes;
 
 import io.github.poeticrainbow.retrotweaks.helper.OldBlockShapesHelper;
 import net.minecraft.core.BlockPos;

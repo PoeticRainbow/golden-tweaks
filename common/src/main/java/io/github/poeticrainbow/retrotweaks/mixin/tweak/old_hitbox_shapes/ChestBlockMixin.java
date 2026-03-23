@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.mixin.tweak.old_block_shapes;
+package io.github.poeticrainbow.retrotweaks.mixin.tweak.old_hitbox_shapes;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import io.github.poeticrainbow.retrotweaks.helper.OldBlockShapesHelper;
