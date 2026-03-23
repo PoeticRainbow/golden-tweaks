@@ -1,0 +1,29 @@
+{
+  "required": false,
+  "package": "io.github.poeticrainbow.retrotweaks.mixin.tweak",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "beta_main_menu.LogoRendererMixin",
+    "beta_main_menu.TitleScreenMixin",
+    "big_stars.SkyRendererMixin",
+    "dirt_gui_background.ScreenMixin",
+    "flat_items.ItemEntityRendererMixin",
+    "full_face_shading.AmbientOcclusionRenderStorageMixin",
+    "mojang_logo.LoadingOverlayMixin",
+    "old_panorama_blur.PanoramaRendererMixin"
+  ],
+  "mixins": [
+    "beta_leaves_lighting.BlockBehaviorMixin",
+    "dark_ambient_occlusion.BlockBehaviorMixin",
+    "dark_water_lighting.BlockStateBaseMixin",
+    "old_block_shapes.ChestBlockMixin",
+    "old_block_shapes.EnderChestBlockMixin",
+    "old_block_shapes.FenceBlockMixin",
+    "old_fence_connections.FenceBlockMixin",
+    "old_footsteps.EntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
