@@ -17,9 +17,6 @@
   "entrypoints": {
     "main": [
       "io.github.poeticrainbow.retrotweaks.fabric.RetroTweaksFabric"
-    ],
-    "client": [
-      "io.github.poeticrainbow.retrotweaks.fabric.client.RetroTweaksFabricClient"
     ]
   },
   "mixins": [
@@ -27,7 +24,7 @@
     "retrotweaks-tweak.mixins.json",
     "retrotweaks-client-required.mixins.json",
     "retrotweaks-client-tweak.mixins.json",
-    "retrotweaks-fabric.mixins.json"
+    "retrotweaks-fabric-client-tweak.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.18.4",

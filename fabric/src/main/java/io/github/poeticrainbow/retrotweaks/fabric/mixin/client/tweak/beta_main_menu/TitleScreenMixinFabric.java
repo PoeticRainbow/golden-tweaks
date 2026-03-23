@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.fabric.mixin;
+package io.github.poeticrainbow.retrotweaks.fabric.mixin.client.tweak.beta_main_menu;
 
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
 import net.minecraft.client.gui.Font;
