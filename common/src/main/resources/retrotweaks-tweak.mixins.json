@@ -23,8 +23,9 @@
     "old_block_shapes.ChestBlockMixin",
     "old_block_shapes.EnderChestBlockMixin",
     "old_block_shapes.FenceBlockMixin",
-    "old_fence_connections.FenceBlockMixin",
     "old_block_shapes.FenceGateBlockMixin",
+    "old_block_shapes.StairBlockMixin",
+    "old_fence_connections.FenceBlockMixin",
     "old_footsteps.EntityMixin"
   ],
   "injectors": {
