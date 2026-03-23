@@ -12,6 +12,7 @@ public enum Versions {
     MODERN;
 
     public static final List<Versions> MAIN_VERSIONS = List.of(ALPHA, BETA, RELEASE, MODERN);
+    public static final List<Versions> MAIN_VERSIONSINFDEV = List.of(INFDEV, ALPHA, BETA, RELEASE, MODERN);
 
     @Override
     public String toString() {
