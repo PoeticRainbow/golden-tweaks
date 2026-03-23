@@ -10,7 +10,7 @@
     "dirt_gui_background.ScreenMixin",
     "flat_items.ItemEntityRendererMixin",
     "full_face_shading.AmbientOcclusionRenderStorageMixin",
-    "mojang_logo.LoadingOverlayMixin",
+    "loading_screen.LoadingOverlayMixin",
     "old_button_colors.AbstractButtonMixin",
     "old_button_colors.AbstractSliderButtonMixin",
     "old_button_colors.AbstractWidgetMixin",

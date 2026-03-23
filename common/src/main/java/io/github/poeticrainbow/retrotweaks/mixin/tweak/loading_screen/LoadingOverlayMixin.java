@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.mixin.tweak.mojang_logo;
+package io.github.poeticrainbow.retrotweaks.mixin.tweak.loading_screen;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -41,7 +41,7 @@ public abstract class LoadingOverlayMixin {
     @WrapMethod(method = "render")
     public void retrotweaks$render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick, Operation<Void> original) {
         // only change when not modern logo
-        if (!Tweaks.MOJANG_LOGO.get().equals(Versions.MODERN)) {
+        if (!Tweaks.LOADING_SCREEN.get().equals(Versions.MODERN)) {
             int width = Minecraft.getInstance().getWindow().getGuiScaledWidth();
             int height = Minecraft.getInstance().getWindow().getGuiScaledHeight();
             long now = Util.getMillis();
@@ -53,9 +53,9 @@ public abstract class LoadingOverlayMixin {
             }
 
             // use entirely seperate logic for infdev, as it has a wildly different loading screen
-            if (!Tweaks.MOJANG_LOGO.get().equals(Versions.INFDEV)) {
+            if (!Tweaks.LOADING_SCREEN.get().equals(Versions.INFDEV)) {
                 // hardcoded color, can we make the edges of the logo stretch to fill?
-                guiGraphics.fill(RenderPipelines.GUI, 0, 0, width, height, Tweaks.MOJANG_LOGO.get().equals(Versions.ALPHA) ? 0xFF373363 : 0xFFFFFFFF);
+                guiGraphics.fill(RenderPipelines.GUI, 0, 0, width, height, Tweaks.LOADING_SCREEN.get().equals(Versions.ALPHA) ? 0xFF373363 : 0xFFFFFFFF);
 
                 int x = (int) ((width / 4.0D) - (128 / 2.0D));
                 int y = (int) ((height / 4.0D) - (128 / 2.0D));
@@ -63,7 +63,7 @@ public abstract class LoadingOverlayMixin {
                 guiGraphics.pose().pushMatrix();
                 guiGraphics.pose().scale(2F, 2F);
 
-                var logo = switch (Tweaks.MOJANG_LOGO.get()) {
+                var logo = switch (Tweaks.LOADING_SCREEN.get()) {
                     case Versions.ALPHA -> ALPHA_MOJANG_LOGO;
                     case Versions.BETA -> BETA_MOJANG_LOGO;
                     default -> RELEASE_MOJANG_LOGO;
