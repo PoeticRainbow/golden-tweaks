@@ -1,12 +1,8 @@
 {
   "required": true,
-  "package": "io.github.poeticrainbow.retrotweaks.mixin.required",
+  "package": "io.github.poeticrainbow.retrotweaks.mixin.common.required",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
-  "client": [
-    "ScreenAccessor",
-    "TitleScreenMixin"
-  ],
   "injectors": {
     "defaultRequire": 1
   }

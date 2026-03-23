@@ -41,4 +41,10 @@ config = "retrotweaks-required.mixins.json"
 config = "retrotweaks-tweak.mixins.json"
 
 [[mixins]]
+config = "retrotweaks-client-required.mixins.json"
+
+[[mixins]]
+config = "retrotweaks-client-tweak.mixins.json"
+
+[[mixins]]
 config = "retrotweaks-neoforge.mixins.json"

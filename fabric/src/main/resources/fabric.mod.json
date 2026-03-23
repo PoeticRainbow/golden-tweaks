@@ -25,6 +25,8 @@
   "mixins": [
     "retrotweaks-required.mixins.json",
     "retrotweaks-tweak.mixins.json",
+    "retrotweaks-client-required.mixins.json",
+    "retrotweaks-client-tweak.mixins.json",
     "retrotweaks-fabric.mixins.json"
   ],
   "depends": {
