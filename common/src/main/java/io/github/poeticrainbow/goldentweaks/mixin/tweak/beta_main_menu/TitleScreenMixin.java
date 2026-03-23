@@ -10,50 +10,26 @@ import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.packs.PackSelectionScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
 @Mixin(TitleScreen.class)
 public abstract class TitleScreenMixin extends Screen {
-    @Unique
-    private static final Identifier DIRT_TEXTURE = Identifier.withDefaultNamespace("textures/block/dirt.png");
-
     protected TitleScreenMixin(Component component) {
         super(component);
     }
 
     @Shadow private boolean fading;
 
-    @Redirect(method = "render",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/screens/TitleScreen;renderPanorama(Lnet/minecraft/client/gui/GuiGraphics;F)V"
-            )
-    )
-    private void goldentweaks$skipPanorama(TitleScreen instance, GuiGraphics guiGraphics, float f) {
-        if (Tweaks.BETA_MAIN_MENU.get()) {
-            //render menu background as a fallback for when the menu_background is transparent
-            // x, y, u, v, width, height, texWidth, texHeight, color
-            guiGraphics.blit(RenderPipelines.GUI_TEXTURED, DIRT_TEXTURE, 0, 0, 0.0F, 0.0F, this.width, this.height, 32, 32, 0xFF404040);
-        } else {
-            this.renderPanorama(guiGraphics, f);
-        }
-    }
-
     @Inject(method = "render", at = @At("HEAD"))
-    private void goldentweaks$skipFadeInAndDirtBackground(GuiGraphics instance, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
+    private void goldentweaks$skip_fade_in(GuiGraphics instance, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
         if (Tweaks.BETA_MAIN_MENU.get()) {
-            this.renderMenuBackground(instance);
             this.fading = false;
         }
     }

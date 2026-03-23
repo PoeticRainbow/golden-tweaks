@@ -27,6 +27,8 @@ public class Tweaks {
     public static final Tweak<Boolean> OLD_FOOTSTEPS = register(new BooleanTweak("old_footsteps", true));
     public static final Tweak<Boolean> BETA_MAIN_MENU = register(new BooleanTweak("beta_main_menu", true));
     public static final Tweak<Boolean> BETA_MOJANG_LOGO = register(new BooleanTweak("beta_mojang_logo", true));
+    public static final Tweak<Boolean> DIRT_GUI_BACKGROUND = register(new BooleanTweak("dirt_gui_background", true));
+    public static final Tweak<Boolean> OLD_PANORAMA_BLUR = register(new BooleanTweak("old_panorama_blur", true));
     // todo: eventually split tweaks into tweaks for clientside, and gamerules/similar for common
     public static final Tweak<Boolean> OLD_BLOCK_SHAPES = register(new BooleanTweak("old_block_shapes", true));
 

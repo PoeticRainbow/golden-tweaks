@@ -4,12 +4,14 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "beta_main_menu.TitleScreenMixin",
     "beta_main_menu.LogoRendererMixin",
+    "beta_main_menu.TitleScreenMixin",
     "beta_mojang_logo.LoadingOverlayMixin",
     "big_stars.SkyRendererMixin",
     "flat_items.ItemEntityRendererMixin",
-    "full_face_shading.AmbientOcclusionRenderStorageMixin"
+    "full_face_shading.AmbientOcclusionRenderStorageMixin",
+    "old_panorama_blur.PanoramaRendererMixin",
+    "dirt_gui_background.ScreenMixin"
   ],
   "mixins": [
     "beta_leaves_lighting.BlockBehaviorMixin",

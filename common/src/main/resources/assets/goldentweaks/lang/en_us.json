@@ -21,6 +21,10 @@
   "goldentweaks.tweak.beta_mojang_logo.tooltip": "When enabled, the loading screen will appear as the one in beta versions.",
   "goldentweaks.tweak.old_block_shapes": "Old Block Shapes",
   "goldentweaks.tweak.old_block_shapes.tooltip": "When enabled, blocks like Fences and Chests will have full block shapes.",
+  "goldentweaks.tweak.dirt_gui_background": "Dirt GUI Background",
+  "goldentweaks.tweak.dirt_gui_background.tooltip": "When enabled, the panorama will be replaced with a dirt background like in Beta 1.7.3 and before.",
+  "goldentweaks.tweak.old_panorama_blur": "Old Panorama Blur",
+  "goldentweaks.tweak.old_panorama_blur.tooltip": "When enabled, the panorama will be rendered blurry",
   "goldentweaks.menu.mods": "Mods and Texture Packs",
   "goldentweaks.menu.version": "Minecraft Beta 1.7.3"
 }
