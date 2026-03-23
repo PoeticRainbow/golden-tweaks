@@ -3,16 +3,36 @@ package io.github.poeticrainbow.retrotweaks.mixin.tweak.old_fence_connections;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(FenceBlock.class)
 public abstract class FenceBlockMixin extends CrossCollisionBlock {
     protected FenceBlockMixin(float f, float g, float h, float i, float j, Properties properties) {
         super(f, g, h, i, j, properties);
+    }
+
+    @Unique
+    private boolean retrotweaks$should_connect(BlockState state) {
+        return state.is(BlockTags.FENCES) || state.is(BlockTags.FENCE_GATES);
+    }
+
+    @Unique
+    private BlockState retrotweaks$connect_fence_state(BlockState state, BlockState north, BlockState east, BlockState south, BlockState west) {
+        return state.setValue(NORTH, retrotweaks$should_connect(north))
+                    .setValue(EAST, retrotweaks$should_connect(east))
+                    .setValue(SOUTH, retrotweaks$should_connect(south))
+                    .setValue(WEST, retrotweaks$should_connect(west));
     }
 
     @WrapMethod(method = "getStateForPlacement")
@@ -27,12 +47,23 @@ public abstract class FenceBlockMixin extends CrossCollisionBlock {
             var south = level.getBlockState(pos.south());
             var west = level.getBlockState(pos.west());
 
-            return state.setValue(NORTH, north.is(this))
-                        .setValue(EAST, east.is(this))
-                        .setValue(SOUTH, south.is(this))
-                        .setValue(WEST, west.is(this));
+            return retrotweaks$connect_fence_state(state, north, east, south, west);
         } else {
             return original.call(blockPlaceContext);
+        }
+    }
+
+    @WrapMethod(method = "updateShape")
+    private BlockState retrotweaks$update_shape(BlockState state, LevelReader reader, ScheduledTickAccess tickAccess, BlockPos pos, Direction direction, BlockPos pos1, BlockState state1, RandomSource random, Operation<BlockState> original) {
+        if (Tweaks.OLD_FENCE_CONNECTIONS.get()) {
+            var north = reader.getBlockState(pos.north());
+            var east = reader.getBlockState(pos.east());
+            var south = reader.getBlockState(pos.south());
+            var west = reader.getBlockState(pos.west());
+
+            return retrotweaks$connect_fence_state(state, north, east, south, west);
+        } else {
+            return original.call(state, reader, tickAccess, pos, direction, pos1, state1, random);
         }
     }
 }
