@@ -2,13 +2,16 @@ package io.github.poeticrainbow.retrotweaks.tweak.types;
 
 import dev.architectury.utils.Env;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
-public class Tweak<T> {
+public abstract class Tweak<T> {
     private final String key;
     private final T defaultValue;
     private T value;
+    private Optional<T> serverValue;
     private final Supplier<Boolean> isFunctional;
     private final Env logicalSide;
 
@@ -31,6 +34,7 @@ public class Tweak<T> {
         this.logicalSide = logicalSide;
         this.defaultValue = defaultValue;
         this.value = defaultValue;
+        this.serverValue = Optional.empty();
         this.isFunctional = isFunctional;
     }
 
@@ -39,12 +43,25 @@ public class Tweak<T> {
             // clientside tweaks are always controlled by the client
             case CLIENT -> this.value;
             // singleplayer or dedicated server (tweak host) : get the value from the current dedicated server (tweak client/guest)
-            case SERVER -> RetroTweaks.isLogicalSide() ? this.value : defaultValue;
+            case SERVER -> RetroTweaks.isLogicalSide() ? this.value : this.serverValue.orElseThrow(() -> new RuntimeException("Tried to get a server value for tweak"));
         };
     }
 
     public void set(T value) {
-        this.value = value;
+        switch (logicalSide) {
+            // clientside tweaks are always controlled by the client
+            case CLIENT -> this.value = value;
+            case SERVER -> {
+                // singleplayer or dedicated server (tweak host)
+                if (RetroTweaks.isLogicalSide()) {
+                    this.value = value;
+                }
+            }
+        }
+    }
+
+    public void setServer(T value) {
+        this.serverValue = Optional.of(value);
     }
 
     public String key() {
