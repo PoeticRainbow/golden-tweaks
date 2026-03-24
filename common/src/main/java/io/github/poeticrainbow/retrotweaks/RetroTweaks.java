@@ -30,6 +30,14 @@ public final class RetroTweaks {
         return Platform.getEnvironment().equals(Env.SERVER);
     }
 
+    public static boolean isVanillaAo() {
+        try {
+            return RetroTweaks.PLATFORM.isVanillaAo();
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
     public static boolean isLogicalSide() {
         return switch (Platform.getEnvironment()) {
             // clients are only in control of logic when in singleplayer
