@@ -2,66 +2,55 @@ package io.github.poeticrainbow.retrotweaks.tweak.types;
 
 import dev.architectury.utils.Env;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public abstract class Tweak<T> {
     private final String key;
     private final T defaultValue;
-    private T value;
-    private Optional<T> serverValue;
+    private final T disabledValue;
+    private T currentValue;
+    @Nullable private T serverSideValue = null;
     private final Supplier<Boolean> isFunctional;
     private final Env logicalSide;
 
     public static final String ERROR_TOOLTIP = "retrotweaks.error_tooltip";
 
-    public Tweak(String key, T defaultValue) {
-        this(key, Env.SERVER, defaultValue, () -> Boolean.TRUE); // default true for all tweaks, functional
+    public Tweak(String key, Env logicalSide, T defaultValue, T disabledValue) {
+        this(key, logicalSide, defaultValue, disabledValue, () -> Boolean.TRUE); // default true for all tweaks, functional
     }
 
-    public Tweak(String key, Env logicalSide, T defaultValue) {
-        this(key, logicalSide, defaultValue, () -> Boolean.TRUE); // default true for all tweaks, functional
-    }
-
-    public Tweak(String key, T defaultValue, Supplier<Boolean> isFunctional) {
-        this(key, Env.SERVER, defaultValue, isFunctional);
-    }
-
-    public Tweak(String key, Env logicalSide, T defaultValue, Supplier<Boolean> isFunctional) {
+    public Tweak(String key, Env logicalSide, T defaultValue, T disabledValue, Supplier<Boolean> isFunctional) {
         this.key = key;
         this.logicalSide = logicalSide;
         this.defaultValue = defaultValue;
-        this.value = defaultValue;
-        this.serverValue = Optional.empty();
+        this.disabledValue = disabledValue;
+        this.currentValue = defaultValue;
         this.isFunctional = isFunctional;
     }
 
     public T get() {
         return switch (logicalSide) {
             // clientside tweaks are always controlled by the client
-            case CLIENT -> this.value;
+            case CLIENT -> this.currentValue;
             // singleplayer or dedicated server (tweak host) : get the value from the current dedicated server (tweak client/guest)
-            case SERVER -> RetroTweaks.isLogicalSide() ? this.value : this.serverValue.orElseThrow(() -> new RuntimeException("Tried to get a server value for tweak"));
+            case SERVER -> RetroTweaks.isLogicalSide() ? this.currentValue : Objects.requireNonNullElse(this.serverSideValue, this.disabledValue);
         };
     }
 
     public void set(T value) {
         switch (logicalSide) {
             // clientside tweaks are always controlled by the client
-            case CLIENT -> this.value = value;
+            case CLIENT -> this.currentValue = value;
             case SERVER -> {
                 // singleplayer or dedicated server (tweak host)
                 if (RetroTweaks.isLogicalSide()) {
-                    this.value = value;
+                    this.currentValue = value;
                 }
             }
         }
-    }
-
-    public void setServer(T value) {
-        this.serverValue = Optional.of(value);
     }
 
     public String key() {
@@ -70,6 +59,10 @@ public abstract class Tweak<T> {
 
     public T defaultValue() {
         return this.defaultValue;
+    }
+
+    public T disabledValue() {
+        return this.disabledValue;
     }
 
     public String translationKey() {

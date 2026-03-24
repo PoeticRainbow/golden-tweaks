@@ -1,5 +1,6 @@
 package io.github.poeticrainbow.retrotweaks.tweak.types;
 
+import dev.architectury.utils.Env;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
 import org.apache.commons.lang3.StringUtils;
 
@@ -8,16 +9,16 @@ import java.util.List;
 public class EnumTweak<T extends Enum<T>> extends Tweak<Enum<T>> {
     private final List<T> values;
 
-    public EnumTweak(String key, Enum<T> defaultValue) {
-        this(key, defaultValue, defaultValue.getDeclaringClass().getEnumConstants());
+    public EnumTweak(String key, Env logicalSide, Enum<T> defaultValue, Enum<T> disabledValue) {
+        this(key, logicalSide, defaultValue, disabledValue, defaultValue.getDeclaringClass().getEnumConstants());
     }
 
-    public EnumTweak(String key, Enum<T> defaultValue, T[] allowedValues) {
-        this(key, defaultValue, List.of(allowedValues));
+    public EnumTweak(String key, Env logicalSide, Enum<T> defaultValue, Enum<T> disabledValue, T[] allowedValues) {
+        this(key, logicalSide, defaultValue, disabledValue, List.of(allowedValues));
     }
 
-    public EnumTweak(String key, Enum<T> defaultValue, List<T> allowedValues) {
-        super(key, defaultValue);
+    public EnumTweak(String key, Env logicalSide, Enum<T> defaultValue, Enum<T> disabledValue, List<T> allowedValues) {
+        super(key, logicalSide, defaultValue, disabledValue);
         this.values = allowedValues;
     }
 

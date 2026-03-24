@@ -48,9 +48,9 @@ public class RetroTweaksClient {
             // minecraft is null during neoforge loading
             return true;
         }
-        var level = Minecraft.getInstance().level;
+        var level = minecraft.level;
         // if there is no level, we have full control
-        // if there is a level, we check if we have logical control over the level
-        return level == null || level.isClientSide();
+        // if there is a level, we check if we have logical control over the server (singleplayer)
+        return level == null || minecraft.isSingleplayer();
     }
 }
