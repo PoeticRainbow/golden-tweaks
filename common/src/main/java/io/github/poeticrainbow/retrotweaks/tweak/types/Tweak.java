@@ -6,6 +6,9 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import dev.architectury.utils.Env;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -86,6 +89,8 @@ public abstract class Tweak<T> {
     }
 
     public abstract Codec<T> getCodec();
+
+    public abstract StreamCodec<@NotNull ByteBuf, @NotNull T> getStreamCodec();
 
     public DataResult<JsonElement> encode() {
         // do not use get() as we do not want to override with the current server's value

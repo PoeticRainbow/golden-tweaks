@@ -3,8 +3,12 @@ package io.github.poeticrainbow.retrotweaks.tweak.types;
 import com.mojang.serialization.Codec;
 import dev.architectury.utils.Env;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.StringRepresentable;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -42,6 +46,11 @@ public class EnumTweak<T extends Enum<T> & StringRepresentable> extends Tweak<T>
     @Override
     public Codec<T> getCodec() {
         return CODEC;
+    }
+
+    @Override
+    public StreamCodec<@NotNull ByteBuf, @NotNull T> getStreamCodec() {
+        return ByteBufCodecs.idMapper(value -> defaultValue().getDeclaringClass().getEnumConstants()[value], Enum::ordinal);
     }
 
     public void next() {
