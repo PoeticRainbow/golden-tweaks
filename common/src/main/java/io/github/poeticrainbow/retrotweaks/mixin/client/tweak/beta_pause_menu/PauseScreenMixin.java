@@ -38,28 +38,28 @@ public class PauseScreenMixin extends Screen {
 
                     if (msg.equals(Component.translatable("menu.returnToGame").getString())) {
                         widget.setX(this.width / 2 - 100);
-                        widget.setY(this.height / 4 + 24 + -16);
+                        widget.setY(this.height / 4 + 24 - 16);
                         widget.setHeight(20);
                         widget.setWidth(200);
                     } else if (msg.equals(Component.translatable("menu.options").getString())) {
                         widget.setX(this.width / 2 - 100);
-                        widget.setY(this.height / 4 + 96 + -16);
+                        widget.setY(this.height / 4 + 96 - 16);
                         widget.setHeight(20);
                         widget.setWidth(200);
                     } else if (msg.equals(Component.translatable("gui.advancements").getString())) {
                         widget.setX(this.width / 2 - 100);
-                        widget.setY(this.height / 4 + 48 + -16);
+                        widget.setY(this.height / 4 + 48 - 16);
 
                         widget.setHeight(20);
                         widget.setWidth(98);
                     } else if (msg.equals(Component.translatable("gui.stats").getString())) {
                         widget.setX(this.width / 2 + 2);
-                        widget.setY(this.height / 4 + 48 + -16);
+                        widget.setY(this.height / 4 + 48 - 16);
                         widget.setHeight(20);
                         widget.setWidth(98);
                     } else if (msg.equals(CommonComponents.disconnectButtonLabel(this.minecraft.isLocalServer()).getString())) {
                         widget.setX(this.width / 2 - 100);
-                        widget.setY(this.height / 4 + 120 + -16);
+                        widget.setY(this.height / 4 + 120 - 16);
                         widget.setHeight(20);
                         widget.setWidth(200);
                     } else {
