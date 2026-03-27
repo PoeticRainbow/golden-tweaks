@@ -2,6 +2,7 @@ package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.old_hud;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import io.github.poeticrainbow.retrotweaks.RetroTweaks;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
@@ -11,22 +12,18 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(Gui.class)
 public abstract class GuiMixin {
-    @Unique private static final Identifier ARMOR_EMPTY_SPRITE = Identifier.withDefaultNamespace("hud/armor_empty");
-    @Unique private static final Identifier ARMOR_HALF_SPRITE = Identifier.withDefaultNamespace("hud/armor_half");
-    @Unique private static final Identifier ARMOR_FULL_SPRITE = Identifier.withDefaultNamespace("hud/armor_full");
-    @Unique private static final Identifier AIR_SPRITE = Identifier.withDefaultNamespace("hud/air");
-    @Unique private static final Identifier AIR_POPPING_SPRITE = Identifier.withDefaultNamespace("hud/air_bursting");
-
-    @Unique private static boolean xpbarexists = Tweaks.REMOVE_XP_BAR.get();
+    @Final @Shadow private static Identifier ARMOR_EMPTY_SPRITE;
+    @Unique private static final Identifier ARMOR_HALF_SPRITE = Identifier.fromNamespaceAndPath(RetroTweaks.MOD_ID, "gui/armor_half_flipped");
+    @Final @Shadow private static Identifier ARMOR_FULL_SPRITE;
+    @Final @Shadow private static Identifier AIR_SPRITE;
+    @Final @Shadow private static Identifier AIR_POPPING_SPRITE;
 
     @WrapMethod(method = "renderArmor")
     private static void retrotweaks$render_armor(GuiGraphics guiGraphics, Player player, int i, int j, int k, int l, Operation<Void> original) {
