@@ -9,12 +9,13 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 import static io.github.poeticrainbow.retrotweaks.RetroTweaks.MOD_ID;
 
 @Mixin(LogoRenderer.class)
 public abstract class LogoRendererMixin {
-    private static final Identifier BETA_MINECRAFT_LOGO = Identifier.fromNamespaceAndPath(MOD_ID, "textures/gui/minecraft.png");
+    @Unique private static final Identifier BETA_MINECRAFT_LOGO = Identifier.fromNamespaceAndPath(MOD_ID, "textures/gui/minecraft.png");
 
     @WrapMethod(method = "renderLogo")
     public void retrotweaks$renderLogo(GuiGraphics guiGraphics, int i, float f, Operation<Void> original) {
