@@ -60,6 +60,10 @@ public abstract class Tweak<T> {
         }
     }
 
+    public void setServerSideValue(@Nullable T serverSideValue) {
+        this.serverSideValue = serverSideValue;
+    }
+
     public String key() {
         return this.key;
     }
@@ -70,6 +74,14 @@ public abstract class Tweak<T> {
 
     public T disabledValue() {
         return this.disabledValue;
+    }
+
+    public T currentValue() {
+        return currentValue;
+    }
+
+    public @Nullable T serverSideValue() {
+        return serverSideValue;
     }
 
     public String translationKey() {

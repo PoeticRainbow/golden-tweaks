@@ -3,9 +3,12 @@ package io.github.poeticrainbow.retrotweaks.config;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import dev.architectury.networking.NetworkManager;
 import dev.architectury.platform.Platform;
 import dev.architectury.utils.Env;
+import dev.architectury.utils.GameInstance;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
+import io.github.poeticrainbow.retrotweaks.network.ConfigSyncS2C;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
 
 import java.io.*;
@@ -18,7 +21,15 @@ public class Config {
 
     public static void init() {
         load(COMMON_CONFIG_PATH);
-        if (Platform.getEnvironment() == Env.CLIENT) {
+
+        if (RetroTweaks.isServer()) {
+            var server = GameInstance.getServer();
+            if (server != null) {
+                NetworkManager.sendToPlayers(server.getPlayerList().getPlayers(), ConfigSyncS2C.build());
+            }
+        }
+
+        if (RetroTweaks.isClient()) {
             load(CLIENT_CONFIG_PATH);
         }
         saveAll();
@@ -26,7 +37,7 @@ public class Config {
 
     public static void saveAll() {
         save(COMMON_CONFIG_PATH, Env.SERVER);
-        if (Platform.getEnvironment() == Env.CLIENT) {
+        if (RetroTweaks.isClient()) {
             save(CLIENT_CONFIG_PATH, Env.CLIENT);
         }
     }

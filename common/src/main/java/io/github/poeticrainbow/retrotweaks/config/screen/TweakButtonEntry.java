@@ -1,5 +1,7 @@
 package io.github.poeticrainbow.retrotweaks.config.screen;
 
+import dev.architectury.utils.Env;
+import io.github.poeticrainbow.retrotweaks.RetroTweaks;
 import io.github.poeticrainbow.retrotweaks.tweak.types.BooleanTweak;
 import io.github.poeticrainbow.retrotweaks.tweak.types.EnumTweak;
 import io.github.poeticrainbow.retrotweaks.tweak.types.Tweak;
@@ -36,7 +38,7 @@ public class TweakButtonEntry extends ObjectSelectionList.Entry<@NotNull TweakBu
                            )
                            .bounds(0, 0, 220, 20)
                            .tooltip(Tooltip.create(tooltip)).build();
-        child.active = tweak.isFunctional();
+        child.active = tweak.isFunctional() && (tweak.logicalSide().equals(Env.CLIENT) || RetroTweaks.isLogicalSide());
     }
 
     @Override

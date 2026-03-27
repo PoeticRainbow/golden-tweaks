@@ -2,19 +2,32 @@ package io.github.poeticrainbow.retrotweaks;
 
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.client.ClientCommandRegistrationEvent;
+import dev.architectury.event.events.client.ClientPlayerEvent;
 import dev.architectury.event.events.client.ClientRawInputEvent;
+import dev.architectury.networking.NetworkManager;
 import dev.architectury.registry.client.keymappings.KeyMappingRegistry;
+import io.github.poeticrainbow.retrotweaks.command.RetroTweaksClientCommand;
 import io.github.poeticrainbow.retrotweaks.config.screen.ConfigScreen;
+import io.github.poeticrainbow.retrotweaks.network.ConfigSyncS2C;
+import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
+import io.github.poeticrainbow.retrotweaks.tweak.types.Tweak;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
-
-import static dev.architectury.event.events.client.ClientCommandRegistrationEvent.literal;
 
 public class RetroTweaksClient {
     public static final KeyMapping RETRO_TWEAKS_BUTTON = new KeyMapping("key.retrotweaks", GLFW.GLFW_KEY_O, KeyMapping.Category.MISC);
 
     public static void init() {
+        // networking
+        NetworkManager.registerReceiver(NetworkManager.Side.S2C, ConfigSyncS2C.ID, ConfigSyncS2C.STREAM_CODEC, (packet, context) -> {
+            packet.values().forEach((key, value) -> {
+                //noinspection unchecked
+                ((Tweak<Object>) Tweaks.get(key)).setServerSideValue(value);
+            });
+        });
+
+        // keybind
         KeyMappingRegistry.register(RETRO_TWEAKS_BUTTON);
 
         ClientRawInputEvent.KEY_PRESSED.register((client, action, keyEvent) -> {
@@ -26,14 +39,10 @@ public class RetroTweaksClient {
         });
 
         ClientCommandRegistrationEvent.EVENT.register((dispatcher, context) -> {
-            dispatcher.register(
-                literal("retrotweaks")
-                    .executes(ctx -> {
-                        RetroTweaksClient.openConfigScreen();
-                        return 1;
-                    })
-            );
+            dispatcher.register(RetroTweaksClientCommand.build());
         });
+
+        ClientPlayerEvent.CLIENT_PLAYER_QUIT.register(player -> Tweaks.resetServerValues());
     }
 
     public static void openConfigScreen() {

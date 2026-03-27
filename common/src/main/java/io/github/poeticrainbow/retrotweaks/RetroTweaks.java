@@ -1,8 +1,13 @@
 package io.github.poeticrainbow.retrotweaks;
 
+import dev.architectury.event.events.common.CommandRegistrationEvent;
+import dev.architectury.event.events.common.PlayerEvent;
+import dev.architectury.networking.NetworkManager;
 import dev.architectury.platform.Platform;
 import dev.architectury.utils.Env;
+import io.github.poeticrainbow.retrotweaks.command.RetroTweaksServerCommand;
 import io.github.poeticrainbow.retrotweaks.config.Config;
+import io.github.poeticrainbow.retrotweaks.network.ConfigSyncS2C;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +19,21 @@ public final class RetroTweaks {
 
     public static void init() {
         // Write common init code here.
-        Config.init();
-        if (Platform.getEnvironment() == Env.CLIENT) {
+        if (isServer()) {
+            NetworkManager.registerS2CPayloadType(ConfigSyncS2C.ID, ConfigSyncS2C.STREAM_CODEC);
+        }
+
+        PlayerEvent.PLAYER_JOIN.register(ConfigSyncS2C::updateTweaksS2C);
+
+        CommandRegistrationEvent.EVENT.register((dispatcher, registry, selection) -> {
+            dispatcher.register(RetroTweaksServerCommand.build());
+        });
+
+        if (isClient()) {
             RetroTweaksClient.init();
         }
+
+        Config.init();
     }
 
     public static boolean isClient() {
