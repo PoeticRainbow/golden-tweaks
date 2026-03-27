@@ -60,6 +60,6 @@ public class RetroTweaksClient {
         var level = minecraft.level;
         // if there is no level, we have full control
         // if there is a level, we check if we have logical control over the server (singleplayer)
-        return level == null || minecraft.isSingleplayer();
+        return level == null || minecraft.hasSingleplayerServer();
     }
 }

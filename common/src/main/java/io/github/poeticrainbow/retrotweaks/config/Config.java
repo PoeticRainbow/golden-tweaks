@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 import dev.architectury.networking.NetworkManager;
 import dev.architectury.platform.Platform;
 import dev.architectury.utils.Env;
-import dev.architectury.utils.GameInstance;
 import io.github.poeticrainbow.retrotweaks.RetroTweaks;
 import io.github.poeticrainbow.retrotweaks.network.ConfigSyncS2C;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
@@ -20,19 +19,23 @@ public class Config {
     public static final Path CLIENT_CONFIG_PATH = Platform.getConfigFolder().resolve("retrotweaks-client.json");
 
     public static void init() {
+        reload();
+        saveAll();
+    }
+
+    public static void reload() {
         load(COMMON_CONFIG_PATH);
-
-        if (RetroTweaks.isServer()) {
-            var server = GameInstance.getServer();
-            if (server != null) {
-                NetworkManager.sendToPlayers(server.getPlayerList().getPlayers(), ConfigSyncS2C.build());
-            }
-        }
-
         if (RetroTweaks.isClient()) {
             load(CLIENT_CONFIG_PATH);
         }
-        saveAll();
+        sendConfigToPlayers();
+    }
+
+    public static void sendConfigToPlayers() {
+        var server = RetroTweaks.getServer();
+        if (server != null) {
+            NetworkManager.sendToPlayers(server.getPlayerList().getPlayers(), ConfigSyncS2C.build());
+        }
     }
 
     public static void saveAll() {
@@ -40,9 +43,10 @@ public class Config {
         if (RetroTweaks.isClient()) {
             save(CLIENT_CONFIG_PATH, Env.CLIENT);
         }
+        sendConfigToPlayers();
     }
 
-    public static void save(Path configPath, Env logicalSide) {
+    private static void save(Path configPath, Env logicalSide) {
         JsonObject config = new JsonObject();
         Tweaks.values().forEach(tweak -> {
             if (tweak.logicalSide().equals(logicalSide)) {
@@ -57,7 +61,7 @@ public class Config {
         }
     }
 
-    public static void load(Path configPath) {
+    private static void load(Path configPath) {
         try {
             try (Reader reader = new FileReader(configPath.toFile())) {
                 JsonObject obj = GSON.fromJson(reader, JsonObject.class);
