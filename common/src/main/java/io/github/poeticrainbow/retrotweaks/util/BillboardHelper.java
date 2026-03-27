@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.helper;
+package io.github.poeticrainbow.retrotweaks.util;
 
 import net.minecraft.client.Minecraft;
 

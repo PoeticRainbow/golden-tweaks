@@ -1,7 +1,7 @@
 package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.flat_items;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import io.github.poeticrainbow.retrotweaks.helper.BillboardHelper;
+import io.github.poeticrainbow.retrotweaks.util.BillboardHelper;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
 import net.minecraft.client.renderer.entity.state.ItemEntityRenderState;

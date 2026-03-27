@@ -1,6 +1,6 @@
 package io.github.poeticrainbow.retrotweaks.mixin.client.required;
 
-import io.github.poeticrainbow.retrotweaks.helper.DimensionTracker;
+import io.github.poeticrainbow.retrotweaks.util.DimensionTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.spongepowered.asm.mixin.Mixin;

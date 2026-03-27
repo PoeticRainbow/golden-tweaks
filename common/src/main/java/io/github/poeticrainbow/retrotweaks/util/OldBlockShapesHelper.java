@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.helper;
+package io.github.poeticrainbow.retrotweaks.util;
 
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
 import net.minecraft.world.level.block.Block;
