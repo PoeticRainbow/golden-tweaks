@@ -34,6 +34,7 @@ public class Tweaks {
     public static final Tweak<Boolean> DARK_WATER_LIGHTING = register(new BooleanTweak("dark_water_lighting", Env.SERVER, true));
     public static final Tweak<Boolean> OLD_HITBOX_SHAPES = register(new BooleanTweak("old_hitbox_shapes", Env.SERVER, true));
     public static final Tweak<Boolean> OLD_FENCE_CONNECTIONS = register(new BooleanTweak("old_fence_connections", Env.SERVER, true));
+    public static final Tweak<Boolean> UNSTABLE_TNT = register(new BooleanTweak("unstable_tnt", Env.SERVER, true));
 
     //public static final Tweak<Enum<Versions>> TEST = registerEnum(new EnumTweak<>("test", Versions.BETA));
 

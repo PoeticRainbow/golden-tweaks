@@ -29,6 +29,8 @@
   "retrotweaks.tweak.old_fence_connections.tooltip": "When enabled, Fences will only connect to Fences and not blocks",
   "retrotweaks.tweak.old_button_colors": "Old Button Colors",
   "retrotweaks.tweak.old_button_colors.tooltip": "When enabled, menu buttons will use the colors from older versions of the game",
+  "retrotweaks.tweak.unstable_tnt": "Unstable TNT",
+  "retrotweaks.tweak.unstable_tnt.tooltip": "When enabled, TNT will explode immediately when broken in Survival",
   "retrotweaks.tweak.beta_pause_menu": "Beta Pause Menu",
   "retrotweaks.tweak.beta_pause_menu.tooltip": "When enabled, the pause menu will be modified to look like the one that appears in beta versions.",
   "retrotweaks.tweak.old_world_loading_screen": "Old World Loading Screen",

@@ -5,12 +5,13 @@
   "minVersion": "0.8",
   "mixins": [
     "dark_water_lighting.BlockStateBaseMixin",
+    "old_fence_connections.FenceBlockMixin",
     "old_hitbox_shapes.ChestBlockMixin",
     "old_hitbox_shapes.EnderChestBlockMixin",
     "old_hitbox_shapes.FenceBlockMixin",
     "old_hitbox_shapes.FenceGateBlockMixin",
     "old_hitbox_shapes.StairBlockMixin",
-    "old_fence_connections.FenceBlockMixin"
+    "unstable_tnt.TntBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
