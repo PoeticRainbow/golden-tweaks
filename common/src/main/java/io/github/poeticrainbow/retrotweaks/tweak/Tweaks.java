@@ -50,6 +50,10 @@ public class Tweaks {
         return REGISTRY.values();
     }
 
+    public static void resetServerValues() {
+        values().forEach(tweak -> tweak.setServerSideValue(null));
+    }
+
     public static Tweak<?> get(String key) {
         return REGISTRY.get(key);
     }
