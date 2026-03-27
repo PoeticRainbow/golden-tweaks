@@ -65,8 +65,11 @@ public class RetroTweaksClient {
     }
 
     public static MinecraftServer getSingleplayerServer() {
-        if (Minecraft.getInstance().hasSingleplayerServer()) {
-            return Minecraft.getInstance().getSingleplayerServer();
+        try {
+            if (Minecraft.getInstance().hasSingleplayerServer()) {
+                return Minecraft.getInstance().getSingleplayerServer();
+            }
+        } catch (Exception ignored) {
         }
         return null;
     }
