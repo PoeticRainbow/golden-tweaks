@@ -54,7 +54,7 @@
   "retrotweaks.tweak.old_world_loading_screen": "Old World Loading Screen",
   "retrotweaks.tweak.old_world_loading_screen.tooltip": "When enabled, the world loading screen will be modified to appear as the one featured in earlier versions of the game.",
   "retrotweaks.tweak.old_crosshair": "Old Crosshair",
-  "retrotweaks.tweak.old_crosshair.tooltip": "When enabled, the crosshair will appear in the position it did in older versions, along with appearing in third person.",
+  "retrotweaks.tweak.old_crosshair.tooltip": "When enabled, the crosshair will appear in the position it did in older versions, along with appearing in third person. Also removes attack indicators",
   "retrotweaks.tweak.unstable_tnt": "Unstable TNT",
   "retrotweaks.tweak.unstable_tnt.tooltip": "When enabled, TNT will explode immediately when broken in Survival"
 }
