@@ -34,24 +34,24 @@ public abstract class GuiMixin {
             int m = player.getArmorValue();
             int var6 = guiGraphics.guiWidth();
             int var7 = guiGraphics.guiHeight();
-            int var17 = var7 - 32;
-            if (!xpbarexists) {
-                var17 = var17 - 7;
+            int yOffset = var7 - 32;
+            if (!Tweaks.REMOVE_XP_BAR.get()) {
+                yOffset = yOffset - 7;
             }
             if (m > 0) {
                 for(int o = 0; o < 10; ++o) {
-                    int var18 = var6 / 2 + 91 - o * 8 - 9;
+                    int xOffset = var6 / 2 + 91 - o * 8 - 9;
                     if (o * 2 + 1 < m) {
 
-                        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARMOR_FULL_SPRITE, var18, var17, 9, 9);
+                        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARMOR_FULL_SPRITE, xOffset, yOffset, 9, 9);
                     }
 
                     if (o * 2 + 1 == m) {
-                        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARMOR_HALF_SPRITE, var18, var17, 9, 9);
+                        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARMOR_HALF_SPRITE, xOffset, yOffset, 9, 9);
                     }
 
                     if (o * 2 + 1 > m) {
-                        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARMOR_EMPTY_SPRITE, var18, var17, 9, 9);
+                        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, ARMOR_EMPTY_SPRITE, xOffset, yOffset, 9, 9);
                     }
                 }
             }
@@ -89,7 +89,7 @@ public abstract class GuiMixin {
                 int yOffset = var7 - 32 - 9;
                 yOffset -= (healthRows - 1) * 10;
 
-                if (!xpbarexists) {
+                if (!Tweaks.REMOVE_XP_BAR.get()) {
                     yOffset = yOffset - 7;
                 }
 
