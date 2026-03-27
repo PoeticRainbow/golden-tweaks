@@ -66,4 +66,9 @@ public abstract class StairBlockMixin extends Block {
             return super.getCollisionShape(state, getter, pos, context);
         }
     }
+
+    @Override
+    public boolean hasDynamicShape() {
+        return true;
+    }
 }
