@@ -18,6 +18,7 @@
     "old_button_colors.AbstractButtonMixin",
     "old_button_colors.AbstractSliderButtonMixin",
     "old_button_colors.AbstractWidgetMixin",
+    "old_death_screen.DeathScreenMixin",
     "old_footsteps.EntityMixin",
     "old_hud.GuiMixin",
     "old_panorama_blur.PanoramaRendererMixin",
