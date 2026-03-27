@@ -27,6 +27,7 @@ public class Tweaks {
     public static final Tweak<Boolean> DIRT_GUI_BACKGROUND = register(new BooleanTweak("dirt_gui_background", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_PANORAMA_BLUR = register(new BooleanTweak("old_panorama_blur", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_BUTTON_COLORS = register(new BooleanTweak("old_button_colors", Env.CLIENT, true));
+    public static final Tweak<Boolean> OLD_WORLD_LOADING_SCREEN = register(new BooleanTweak("old_world_loading_screen", Env.CLIENT, true));
 
     // todo: eventually split tweaks into tweaks for clientside, and gamerules/similar for common
     // SERVER SIDE

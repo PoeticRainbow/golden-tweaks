@@ -2,7 +2,6 @@ package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.beta_pause_menu;
 
 import io.github.poeticrainbow.retrotweaks.mixin.client.required.ScreenAccessor;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.StringWidget;

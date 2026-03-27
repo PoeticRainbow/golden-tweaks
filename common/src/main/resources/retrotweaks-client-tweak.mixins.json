@@ -18,7 +18,8 @@
     "old_panorama_blur.PanoramaRendererMixin",
     "beta_leaves_lighting.BlockBehaviorMixin",
     "dark_ambient_occlusion.BlockBehaviorMixin",
-    "old_footsteps.EntityMixin"
+    "old_footsteps.EntityMixin",
+    "old_world_loading_screen.LevelLoadingScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
