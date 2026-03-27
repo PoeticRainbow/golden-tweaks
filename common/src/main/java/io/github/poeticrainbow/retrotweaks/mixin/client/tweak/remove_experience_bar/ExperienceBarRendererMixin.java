@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public class ExperienceBarRendererMixin {
     @WrapMethod(method = "renderBackground")
     public void retrotweaks$render_background(GuiGraphics arg, DeltaTracker arg2, Operation<Void> original) {
-        if (!Tweaks.REMOVE_XP_BAR.get()) {
+        if (!Tweaks.HIDE_XP_BAR.get()) {
             original.call(arg, arg2);
         }
     }

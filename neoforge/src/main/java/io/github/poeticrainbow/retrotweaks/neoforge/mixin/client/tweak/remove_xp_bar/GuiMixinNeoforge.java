@@ -13,7 +13,7 @@ public class GuiMixinNeoforge {
     @WrapMethod(method = "renderHearts")
     private void retrotweaks$render_hearts(GuiGraphics arg, Player arg2, int m, int n, int o, int p, float f, int q, int r, int s, boolean bl, Operation<Void> original) {
         int j = n;
-        if (Tweaks.REMOVE_XP_BAR.get()) {
+        if (Tweaks.HIDE_XP_BAR.get()) {
             j = j + 7;
         }
         original.call(arg, arg2, m, j, o, p, f, q, r, s, bl);
@@ -21,7 +21,7 @@ public class GuiMixinNeoforge {
     @WrapMethod(method = "renderFood")
     private void retrotweaks$render_hunger(GuiGraphics arg, Player arg2, int m, int n, Operation<Void> original) {
         int j = m;
-        if (Tweaks.REMOVE_XP_BAR.get()) {
+        if (Tweaks.HIDE_XP_BAR.get()) {
             j = j + 7;
         }
         original.call(arg, arg2, j, n);
@@ -29,7 +29,7 @@ public class GuiMixinNeoforge {
     @WrapMethod(method = "renderAirBubbles")
     private void retrotweaks$render_bubbles(GuiGraphics arg, Player arg2, int m, int n, int o, Operation<Void> original) {
         int j = n;
-        if (Tweaks.REMOVE_XP_BAR.get()) {
+        if (Tweaks.HIDE_XP_BAR.get()) {
             j = j + 7;
         }
         original.call(arg, arg2, m, j, o);
@@ -37,7 +37,7 @@ public class GuiMixinNeoforge {
     @WrapMethod(method = "renderArmor")
     private static void retrotweaks$render_armor(GuiGraphics arg, Player arg2, int m, int n, int o, int p, Operation<Void> original) {
         int j = m;
-        if (Tweaks.REMOVE_XP_BAR.get()) {
+        if (Tweaks.HIDE_XP_BAR.get()) {
             j = j + 7;
         }
         original.call(arg, arg2, j, n, o, p);

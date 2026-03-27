@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public interface ContextualBarRendererMixin {
     @WrapMethod(method = "renderExperienceLevel")
     private static void renderExperienceLevel(GuiGraphics guiGraphics, Font font, int i, Operation<Void> original) {
-        if (!Tweaks.REMOVE_XP_BAR.get()) {
+        if (!Tweaks.HIDE_XP_BAR.get()) {
             original.call(guiGraphics, font, i);
         }
     }

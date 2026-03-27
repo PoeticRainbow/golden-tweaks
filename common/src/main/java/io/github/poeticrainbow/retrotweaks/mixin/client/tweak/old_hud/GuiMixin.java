@@ -27,12 +27,12 @@ public abstract class GuiMixin {
 
     @WrapMethod(method = "renderArmor")
     private static void retrotweaks$render_armor(GuiGraphics guiGraphics, Player player, int i, int j, int k, int l, Operation<Void> original) {
-        if (Tweaks.OLD_HUD.get()) {
+        if (Tweaks.HIDE_HUNGER_BAR.get()) {
             int m = player.getArmorValue();
             int var6 = guiGraphics.guiWidth();
             int var7 = guiGraphics.guiHeight();
             int yOffset = var7 - 32;
-            if (!Tweaks.REMOVE_XP_BAR.get()) {
+            if (!Tweaks.HIDE_XP_BAR.get()) {
                 yOffset = yOffset - 7;
             }
             if (m > 0) {
@@ -59,7 +59,7 @@ public abstract class GuiMixin {
 
     @WrapMethod(method = "renderFood")
     private void retrotweaks$render_food(GuiGraphics guiGraphics, Player player, int i, int j, Operation<Void> original) {
-        if (Tweaks.OLD_HUD.get()) {
+        if (Tweaks.HIDE_HUNGER_BAR.get()) {
             // do nothing
         } else {
             original.call(guiGraphics, player, i, j);
@@ -68,7 +68,7 @@ public abstract class GuiMixin {
 
     @WrapMethod(method = "renderAirBubbles")
     private void retrotweaks$render_air_bubble(GuiGraphics guiGraphics, Player player, int i, int j, int k, Operation<Void> original) {
-        if (Tweaks.OLD_HUD.get()) {
+        if (Tweaks.HIDE_HUNGER_BAR.get()) {
             int l = player.getMaxAirSupply();
             int m = Math.clamp((long) player.getAirSupply(), 0, l);
             boolean bl = player.isEyeInFluid(FluidTags.WATER);
@@ -86,7 +86,7 @@ public abstract class GuiMixin {
                 int yOffset = var7 - 32 - 9;
                 yOffset -= (healthRows - 1) * 10;
 
-                if (!Tweaks.REMOVE_XP_BAR.get()) {
+                if (!Tweaks.HIDE_XP_BAR.get()) {
                     yOffset = yOffset - 7;
                 }
 
