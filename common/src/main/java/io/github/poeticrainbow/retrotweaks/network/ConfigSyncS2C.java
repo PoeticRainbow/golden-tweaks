@@ -2,7 +2,6 @@ package io.github.poeticrainbow.retrotweaks.network;
 
 import dev.architectury.networking.NetworkManager;
 import dev.architectury.utils.Env;
-import io.github.poeticrainbow.retrotweaks.RetroTweaks;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
 import io.github.poeticrainbow.retrotweaks.tweak.types.Tweak;
 import net.minecraft.network.RegistryFriendlyByteBuf;
