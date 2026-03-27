@@ -3,10 +3,14 @@ package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.old_world_loading
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
+import io.github.poeticrainbow.retrotweaks.util.DimensionTracker;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.LevelLoadingScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.LevelLoadTracker;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -42,10 +46,18 @@ public class LevelLoadingScreenMixin extends Screen {
 
             // todo: use the previousDimension or previousDimensionTranslation in
             //       DimensionHelper to display a Entering or Leaving text
-            //guiGraphics.drawCenteredString(this.font, DimensionHelper.previousDimensionTranslation(), width, l - 4, -1);
+            //guiGraphics.drawCenteredString(this.font, DimensionTracker.previousDimensionTranslation(), width, l - 4, -1);
 
             Component header = Component.translatable("retrotweaks.loading.loading");
             Component stage = Component.translatable("retrotweaks.loading.building");
+
+            if (DimensionTracker.previousDimensionTranslation().equals(Component.translatable("dimension.minecraft.overworld")) && this.minecraft.level != null) {
+                stage = Component.translatable("retrotweaks.loading.enter", DimensionTracker.currentDimensionTranslation());
+            }
+            if (DimensionTracker.currentDimensionTranslation().equals(Component.translatable("dimension.minecraft.overworld")) && this.minecraft.level != null) {
+                stage = Component.translatable("retrotweaks.loading.leave", DimensionTracker.previousDimensionTranslation());
+            }
+
             guiGraphics.drawCenteredString(this.font, stage, width, l - 4 + 8, -1);
             guiGraphics.drawCenteredString(this.font, header, width, l - 4 - 16, -1);
             if (loadTracker.hasProgress()) {
@@ -53,6 +65,19 @@ public class LevelLoadingScreenMixin extends Screen {
             }
         } else {
             original.call(guiGraphics, m, n, f);
+        }
+    }
+
+    @WrapMethod(method = "renderBackground")
+    private void retrotweaks$render_background(GuiGraphics guiGraphics, int i, int j, float f, Operation<Void> original) {
+        if (Tweaks.OLD_WORLD_LOADING_SCREEN.get()) {
+            this.renderPanorama(guiGraphics, f);
+            this.renderBlurredBackground(guiGraphics);
+            if (!Tweaks.DIRT_GUI_BACKGROUND.get()) {
+                this.renderMenuBackground(guiGraphics);
+            }
+        } else {
+            original.call(guiGraphics, i, j, f);
         }
     }
 }

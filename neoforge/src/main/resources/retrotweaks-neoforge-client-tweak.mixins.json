@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
-    "beta_main_menu.TitleScreenMixinNeoforge"
+    "beta_main_menu.TitleScreenMixinNeoforge",
+    "remove_xp_bar.GuiMixinNeoforge"
   ],
   "injectors": {
     "defaultRequire": 1

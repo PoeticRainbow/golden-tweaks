@@ -28,6 +28,8 @@ public class Tweaks {
     public static final Tweak<Boolean> OLD_PANORAMA_BLUR = register(new BooleanTweak("old_panorama_blur", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_BUTTON_COLORS = register(new BooleanTweak("old_button_colors", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_WORLD_LOADING_SCREEN = register(new BooleanTweak("old_world_loading_screen", Env.CLIENT, true));
+    public static final Tweak<Boolean> OLD_HUD = register(new BooleanTweak("old_hud", Env.CLIENT, true));
+    public static final Tweak<Boolean> REMOVE_XP_BAR = register(new BooleanTweak("remove_xp_bar", Env.CLIENT,true));
 
     // todo: eventually split tweaks into tweaks for clientside, and gamerules/similar for common
     // SERVER SIDE
