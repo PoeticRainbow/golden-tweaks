@@ -20,6 +20,10 @@ public final class RetroTweaks {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static TweakPlatform PLATFORM;
 
+    static {
+        Config.init();
+    }
+
     public static void init() {
         // Write common init code here.
         if (isServer()) {
@@ -35,8 +39,6 @@ public final class RetroTweaks {
         if (isClient()) {
             RetroTweaksClient.init();
         }
-
-        Config.init();
     }
 
     public static boolean isClient() {
