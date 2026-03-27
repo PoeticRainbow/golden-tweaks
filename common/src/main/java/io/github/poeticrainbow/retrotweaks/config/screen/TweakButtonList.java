@@ -14,4 +14,9 @@ public class TweakButtonList extends ContainerObjectSelectionList<@NotNull Tweak
             addEntry(new TweakButtonEntry(tweak), 22);
         }
     }
+
+    @Override
+    protected int scrollBarX() {
+        return super.scrollBarX() - 5;
+    }
 }
