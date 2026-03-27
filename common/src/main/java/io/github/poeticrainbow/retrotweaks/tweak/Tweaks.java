@@ -23,7 +23,7 @@ public class Tweaks {
     public static final Tweak<Boolean> OLD_FOOTSTEPS = register(new BooleanTweak("old_footsteps", Env.CLIENT, true));
     public static final Tweak<Boolean> BETA_MAIN_MENU = register(new BooleanTweak("beta_main_menu", Env.CLIENT, true));
     public static final Tweak<Boolean> BETA_PAUSE_MENU = register(new BooleanTweak("beta_pause_menu", Env.CLIENT, true));
-    public static final Tweak<Versions> LOADING_SCREEN = registerEnum(new EnumTweak<>("loading_screen", Env.CLIENT, Versions.BETA, Versions.RELEASE, Versions.MAIN_VERSIONSINFDEV));
+    public static final Tweak<Versions> LOADING_SCREEN = registerEnum(new EnumTweak<>("loading_screen", Env.CLIENT, Versions.BETA, Versions.MODERN, Versions.MAIN_VERSIONSINFDEV));
     public static final Tweak<Boolean> DIRT_GUI_BACKGROUND = register(new BooleanTweak("dirt_gui_background", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_PANORAMA_BLUR = register(new BooleanTweak("old_panorama_blur", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_BUTTON_COLORS = register(new BooleanTweak("old_button_colors", Env.CLIENT, true));
