@@ -36,4 +36,10 @@ public class BlockStateBaseMixin {
         var shape = OldBlockShapesHelper.getCollisionShapeForState(((BlockBehaviour.BlockStateBase)(Object) this));
         return shape.map(Block::isShapeFullBlock).orElseGet(() -> original.call(getter, pos));
     }
+
+    @WrapMethod(method = "hasLargeCollisionShape")
+    private boolean retrotweaks$override_has_large_collision_shape(Operation<Boolean> original) {
+        var shape = OldBlockShapesHelper.getCollisionShapeForState(((BlockBehaviour.BlockStateBase)(Object) this));
+        return shape.map(OldBlockShapesHelper::hasLargeCollisionShape).orElseGet(original::call);
+    }
 }

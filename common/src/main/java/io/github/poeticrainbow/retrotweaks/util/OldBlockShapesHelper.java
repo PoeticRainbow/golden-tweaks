@@ -84,4 +84,9 @@ public class OldBlockShapesHelper {
         }
         return Optional.empty();
     }
+
+    public static boolean hasLargeCollisionShape(VoxelShape shape) {
+        return Arrays.stream(Direction.Axis.values())
+                     .anyMatch(axis -> shape.min(axis) < 0.0 || shape.max(axis) > 1.0);
+    }
 }
