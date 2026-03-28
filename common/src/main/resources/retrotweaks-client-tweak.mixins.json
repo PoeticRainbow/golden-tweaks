@@ -29,7 +29,8 @@
     "old_panorama_blur.PanoramaRendererMixin",
     "old_world_loading_screen.LevelLoadingScreenMixin",
     "remove_experience_bar.ContextualBarRendererMixin",
-    "remove_experience_bar.ExperienceBarRendererMixin"
+    "remove_experience_bar.ExperienceBarRendererMixin",
+    "top_left_version_text.GuiMixin"
   ],
   "injectors": {
     "defaultRequire": 1
