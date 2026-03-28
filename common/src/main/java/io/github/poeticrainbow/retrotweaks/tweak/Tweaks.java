@@ -34,6 +34,7 @@ public class Tweaks {
     public static final Tweak<Boolean> OLD_CROSSHAIR = register(new BooleanTweak("old_crosshair", Env.CLIENT, true));
     public static final Tweak<Boolean> MOVE_SYSTEM_MESSAGES = register(new BooleanTweak("move_system_messages", Env.CLIENT, true));
     public static final Tweak<Boolean> BETA_CHAT = register(new BooleanTweak("beta_chat", Env.CLIENT, true));
+    public static final Tweak<Boolean> TOP_LEFT_VERSION_TEXT = register(new BooleanTweak("top_left_version_text", Env.CLIENT, false));
 
     // todo: eventually split tweaks into tweaks for clientside, and gamerules/similar for common
     // SERVER SIDE
