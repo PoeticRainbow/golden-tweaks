@@ -1,6 +1,8 @@
 package io.github.poeticrainbow.retrotweaks.util;
 
 import io.github.poeticrainbow.retrotweaks.tweak.Tweaks;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.AbstractChestBlock;
@@ -15,6 +17,8 @@ import java.util.Optional;
 
 public class OldBlockShapesHelper {
     public static final VoxelShape FENCE_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 24.0D, 16.0D);
+
+    public static final TagKey<Block> CHESTS = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "chests"));
 
     public static boolean shouldOverrideBlockShapes() {
         return Tweaks.OLD_HITBOX_SHAPES.get();
@@ -35,7 +39,7 @@ public class OldBlockShapesHelper {
     }
 
     public static Optional<VoxelShape> getCollisionShapeForState(BlockBehaviour.BlockStateBase state) {
-        if (state.getBlock() instanceof AbstractChestBlock<?>) {
+        if (state.getBlock() instanceof AbstractChestBlock<?> || is(state, CHESTS)) {
             return getFullBlockShape();
         }
         if (state.getBlock() instanceof FenceBlock || is(state, BlockTags.FENCES)) {
