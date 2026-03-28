@@ -32,6 +32,8 @@ public class Tweaks {
     public static final Tweak<Boolean> HIDE_XP_BAR = register(new BooleanTweak("hide_xp_bar", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_DEATH_SCREEN = register(new BooleanTweak("old_death_screen", Env.CLIENT, true));
     public static final Tweak<Boolean> OLD_CROSSHAIR = register(new BooleanTweak("old_crosshair", Env.CLIENT, true));
+    public static final Tweak<Boolean> MOVE_SYSTEM_MESSAGES = register(new BooleanTweak("move_system_messages", Env.CLIENT, true));
+    public static final Tweak<Boolean> BETA_CHAT = register(new BooleanTweak("beta_chat", Env.CLIENT, true));
 
     // todo: eventually split tweaks into tweaks for clientside, and gamerules/similar for common
     // SERVER SIDE

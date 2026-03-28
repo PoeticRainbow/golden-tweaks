@@ -4,6 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "beta_chat.ChatComponentMixin",
+    "beta_chat.ChatScreenMixin",
+    "beta_chat.GuiMessageTagMixin",
     "beta_leaves_lighting.BlockBehaviorMixin",
     "beta_main_menu.LogoRendererMixin",
     "beta_main_menu.TitleScreenMixin",
@@ -15,19 +18,23 @@
     "flat_items.ItemEntityRendererMixin",
     "full_face_shading.AmbientOcclusionRenderStorageMixin",
     "loading_screen.LoadingOverlayMixin",
+    "move_system_messages.ChatListenerMixin",
     "old_button_colors.AbstractButtonMixin",
     "old_button_colors.AbstractSliderButtonMixin",
     "old_button_colors.AbstractWidgetMixin",
+    "old_crosshair.GuiMixin",
     "old_death_screen.DeathScreenMixin",
     "old_footsteps.EntityMixin",
     "old_hud.GuiMixin",
     "old_panorama_blur.PanoramaRendererMixin",
     "old_world_loading_screen.LevelLoadingScreenMixin",
     "remove_experience_bar.ContextualBarRendererMixin",
-    "remove_experience_bar.ExperienceBarRendererMixin",
-    "old_crosshair.GuiMixin"
+    "remove_experience_bar.ExperienceBarRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "beta_chat.ChatComponent$1Mixin"
+  ]
 }
