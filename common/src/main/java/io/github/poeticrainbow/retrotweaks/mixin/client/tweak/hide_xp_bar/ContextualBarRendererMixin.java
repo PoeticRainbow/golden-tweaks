@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.remove_experience_bar;
+package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.hide_xp_bar;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;

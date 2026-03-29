@@ -26,11 +26,11 @@
     "old_death_screen.DeathScreenMixin",
     "old_footsteps.EntityMixin",
     "old_hitbox_shapes.LevelRendererMixin",
-    "old_hud.GuiMixin",
+    "hide_hunger_bar.GuiMixin",
     "old_panorama_blur.PanoramaRendererMixin",
     "old_world_loading_screen.LevelLoadingScreenMixin",
-    "remove_experience_bar.ContextualBarRendererMixin",
-    "remove_experience_bar.ExperienceBarRendererMixin",
+    "hide_xp_bar.ContextualBarRendererMixin",
+    "hide_xp_bar.ExperienceBarRendererMixin",
     "top_left_version_text.GuiMixin"
   ],
   "injectors": {

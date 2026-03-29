@@ -1,4 +1,4 @@
-package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.old_hud;
+package io.github.poeticrainbow.retrotweaks.mixin.client.tweak.hide_hunger_bar;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
