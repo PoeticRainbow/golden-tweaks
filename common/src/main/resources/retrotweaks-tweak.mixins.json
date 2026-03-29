@@ -5,6 +5,7 @@
   "minVersion": "0.8",
   "mixins": [
     "dark_water_lighting.BlockStateBaseMixin",
+    "instant_consumption.ConsumableMixin",
     "old_fence_connections.FenceBlockMixin",
     "old_hitbox_shapes.BlockStateBaseMixin",
     "old_hitbox_shapes.ClipContextMixin",

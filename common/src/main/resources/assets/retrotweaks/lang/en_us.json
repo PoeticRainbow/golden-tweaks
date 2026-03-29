@@ -47,6 +47,8 @@
   "retrotweaks.tweak.hide_xp_bar.tooltip": "When enabled, the experience bar and the level number will be hidden from the hud, with other elements adjusted to match.",
   "retrotweaks.tweak.hide_extra_tooltip_info": "Hide Extra Tooltip Info",
   "retrotweaks.tweak.hide_extra_tooltip_info.tooltip": "When enabled, any tooltip info apart from the item name will be hidden",
+  "retrotweaks.tweak.instant_consumption": "Instant Consumption",
+  "retrotweaks.tweak.instant_consumption.tooltip": "When enabled, all consumable items will be consumed instantly, and not produce particles or sound.",
   "retrotweaks.tweak.loading_screen": "Loading Screen",
   "retrotweaks.tweak.loading_screen.tooltip": "When enabled, the loading screen will appear as the one from the version selected.",
   "retrotweaks.tweak.move_system_messages": "Move System Messages",
