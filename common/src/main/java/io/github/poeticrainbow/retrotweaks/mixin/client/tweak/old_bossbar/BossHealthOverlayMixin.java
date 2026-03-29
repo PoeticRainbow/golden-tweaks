@@ -63,16 +63,10 @@ public class BossHealthOverlayMixin {
             short var5 = 182;
             int var6 = var4 / 2 - var5 / 2;
             byte var8 = 12;
-            guiGraphics.blitSprite(
-                    RenderPipelines.GUI_TEXTURED,
-                    identifiers[bossEvent.getColor().ordinal()],
-                    182, 5,   // The full dimensions of the sprite file
-                    0, 0,     // The UV offset (starting at the top-left of the sprite)
-                    var6,     // The X position (centered: screenWidth/2 - 182/2)
-                    var8,     // The Y position (12)
-                    var5,     // The Width to draw (182)
-                    5         // The Height to draw (5)
-            );
+            guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, identifiers[bossEvent.getColor().ordinal()], 182, 5, 0, 0, var6, var8,  k, 5);
+            if (bossEvent.getOverlay() != BossEvent.BossBarOverlay.PROGRESS) {
+                guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, identifiers2[bossEvent.getOverlay().ordinal() - 1], 182, 5, 0, 0, var6, var8, var5, 5);
+            }
         } else {
             original.call(guiGraphics, i, j, bossEvent, k, identifiers, identifiers2);
         }
