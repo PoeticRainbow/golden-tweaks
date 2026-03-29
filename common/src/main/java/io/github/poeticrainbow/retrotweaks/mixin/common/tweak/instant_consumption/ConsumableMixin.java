@@ -7,12 +7,9 @@ import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,25 +20,14 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(Consumable.class)
 public abstract class ConsumableMixin {
-    @Shadow
-    public abstract boolean canConsume(LivingEntity livingEntity, ItemStack itemStack);
-
-    @Shadow
-    public abstract ItemStack onConsume(Level level, LivingEntity livingEntity, ItemStack itemStack);
-
     @Mutable @Shadow @Final private Holder<SoundEvent> sound;
 
-    @WrapMethod(method = "startConsuming")
-    public InteractionResult retrotweaks$start_consuming(LivingEntity livingEntity, ItemStack itemStack, InteractionHand interactionHand, Operation<InteractionResult> original) {
+    @WrapMethod(method = "consumeTicks")
+    private int retrotweaks$override_consume_ticks(Operation<Integer> original) {
         if (Tweaks.INSTANT_CONSUMPTION.get()) {
-            if (!this.canConsume(livingEntity, itemStack)) {
-                return InteractionResult.FAIL;
-            } else {
-                ItemStack itemStack2 = this.onConsume(livingEntity.level(), livingEntity, itemStack);
-                return InteractionResult.CONSUME.heldItemTransformedTo(itemStack2);
-            }
+            return 0;
         } else {
-            return original.call(livingEntity, itemStack, interactionHand);
+            return original.call();
         }
     }
 
