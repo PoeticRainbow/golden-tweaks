@@ -10,6 +10,11 @@
     "old_fence_connections.FenceBlockMixin",
     "old_hitbox_shapes.BlockStateBaseMixin",
     "old_hitbox_shapes.ClipContextMixin",
+    "remove_hunger.FoodDataMixin",
+    "remove_hunger.PlayerMixin",
+    "remove_hunger.ServerPlayerMixin",
+    "sprinting_style.FoodDataMixin",
+    "sprinting_style.LivingEntityMixin",
     "unstable_tnt.TntBlockMixin"
   ],
   "injectors": {

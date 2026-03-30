@@ -8,6 +8,7 @@
     "beta_main_menu.ClientHooksMixinNeoForge",
     "beta_main_menu.TitleScreenMixinNeoForge",
     "hide_action_bar.GuiMixinNeoforge",
+    "remove_hunger.GuiMixinNeoforge",
     "remove_xp_bar.GuiMixinNeoforge"
   ],
   "injectors": {
