@@ -11,12 +11,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Supplier;
 
 public class BooleanTweak extends Tweak<Boolean> {
-    public BooleanTweak(String key, Env logicalSide, Boolean enabledValue) {
-        super(key, logicalSide, enabledValue, !enabledValue);
+    public BooleanTweak(String key, Env logicalSide, Boolean defaultValue, Boolean disabledValue) {
+        super(key, logicalSide, defaultValue, disabledValue);
     }
 
-    public BooleanTweak(String key, Env logicalSide, Boolean enabledValue, Supplier<Boolean> isFunctional) {
-        super(key, logicalSide, enabledValue, !enabledValue, isFunctional);
+    public BooleanTweak(String key, Env logicalSide, Boolean defaultValue, Boolean disabledValue, Supplier<Boolean> isFunctional) {
+        super(key, logicalSide, defaultValue, disabledValue, isFunctional);
     }
 
     public void toggle() {
